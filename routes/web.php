@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +27,23 @@ Route::middleware('auth')->group(function () {
     Route::get('/Up_coming', [HomeController::class, 'Up_coming']);
     Route::get('/event/{id}', [HomeController::class, 'show_event']);
     Route::get('/community/{id}', [HomeController::class, 'show_community']);
+    
+Route::put('/events/{event}', [AdminController::class, 'update'])->name('events.update');
+
+
+Route::delete('/events/{id}', [AdminController::class, 'destroy'])->name('events.destroy');
+Route::get('/add_event', [AdminController::class, 'index'])
+    ->name('add_event');
+Route::post('/simpan_event', [AdminController::class, 'store'])->name('events.store');
     // Add more routes here that require authentication
 });
 
 Route::get('/admin', function () {
-    return Inertia::render('Admin/Dashboard', [
-        'layout' => 'layouts.tabler', // Pass the layout to Inertia
-    ]);
+    return Inertia::render('Admin/Dashboard');  // This refers to the Vue component located at resources/js/Pages/Admin/Dashboard.vue
+});
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Admin/Dashboard');  // This refers to the Vue component located at resources/js/Pages/Admin/Dashboard.vue
 });
 
 // Routes that are accessible by guest (non-authenticated users)

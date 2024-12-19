@@ -9,7 +9,7 @@
       <div class="events-grid">
         <div class="event-card" v-for="event in paginatedEvents" :key="event.id" @click="goToEventPage(event.id)">
           <h3>{{ event.judul }}</h3>
-          <img :src="event.image" alt="Event Image" />
+          <img :src="'/storage/' + event.image" alt="Event Image" />
           <h4>{{ event.deskripsi }}</h4>
           <p>{{ event.tanggal }}</p>
         </div>

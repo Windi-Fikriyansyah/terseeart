@@ -18,11 +18,16 @@ export default defineConfig({
         }),
     ],
     optimizeDeps: {
-        include: ['vue', 'vue-router'], // Explicitly include Vue for optimization
+        include: ['vue', 'vue-router','@popperjs/core','bootstrap'], // Explicitly include Vue for optimization
     },
     server: {
         watch: {
             usePolling: true, // Sometimes file watching issues are resolved by using polling
+        },
+    },
+    resolve: {
+        alias: {
+            '@': '/resources/js',  // Add this line to configure the alias for @
         },
     },
 });

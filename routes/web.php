@@ -27,14 +27,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/Up_coming', [HomeController::class, 'Up_coming']);
     Route::get('/event/{id}', [HomeController::class, 'show_event']);
     Route::get('/community/{id}', [HomeController::class, 'show_community']);
-    
-Route::put('/events/{event}', [AdminController::class, 'update'])->name('events.update');
+
+// Route::put('/events/{event}', [AdminController::class, 'update'])->name('events.update');
 
 
-Route::delete('/events/{id}', [AdminController::class, 'destroy'])->name('events.destroy');
-Route::get('/add_event', [AdminController::class, 'index'])
-    ->name('add_event');
-Route::post('/simpan_event', [AdminController::class, 'store'])->name('events.store');
+// Route::delete('/events/{id}', [AdminController::class, 'destroy'])->name('events.destroy');
+// Route::get('/add_event', [AdminController::class, 'index'])
+//     ->name('add_event');
+// Route::post('/simpan_event', [AdminController::class, 'store'])->name('events.store');
+
+
+
+
     // Add more routes here that require authentication
 });
 
